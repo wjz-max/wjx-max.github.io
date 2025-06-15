@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>个人博客</title><meta name="author" content="武家鑫"><meta name="copyright" content="武家鑫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/w.png">
+<meta property="article:author" content="武家鑫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/w.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '个人博客',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/moon.png);"></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/sea.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">个人博客</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">个人博客</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/15/Java%E7%AE%80%E4%BB%8B/" title="Java简介">Java简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-15T14:52:20.000Z" title="发表于 2025-06-15 22:52:20">2025-06-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="content">Java 是由 Sun Microsystems 公司（现属 Oracle）开发的高级编程语言，自 1995 年问世以来，凭借其跨平台性、面向对象特性和丰富的类库，成为全球应用最广泛的编程语言之一。​核心特性：Java 具有 “一次编写，到处运行” 的特性，通过 Java 虚拟机（JVM）实现跨平台运行，不受操作系统限制；采用完全面向对象编程，支持封装、继承和多态，便于代码的复用与维护；具备自动垃圾回收机制，减轻开发者对内存管理的负担，提升程序稳定性。​应用领域：在企业级开发中，Java 是构建大型系统的首选，如电商平台、金融系统；移动端开发方面，安卓系统的应用开发主要基于 Java；此外，Java 还广泛应用于大数据处理（如 Hadoop）、游戏开发、分布式系统等领域。​开发体系：Java 拥有庞大的生态系统，包括标准版（Java SE）、企业版（Java EE，现称 Jakarta EE）和移动版（Java ME）。开发过程中，常使用集成开发环境（IDE）如 IntelliJ IDEA、Eclipse，配合 Maven 或 Gradle...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/15/Web%E6%8A%80%E6%9C%AF/" title="Web技术">Web技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-15T14:49:19.000Z" title="发表于 2025-06-15 22:49:19">2025-06-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="content">Web 技术是构建和运行互联网应用的核心技术体系，涵盖了从网页展示到交互功能实现的全流程。其基础由 HTML、CSS 和 JavaScript 三大技术构成：​HTML（超文本标记语言）：定义网页的结构与内容，如标题、段落、图片等，是网页的 “骨架”。​CSS（层叠样式表）：负责网页的样式设计，包括颜色、布局、字体等，赋予网页视觉美感。​JavaScript：为网页添加交互性与动态功能，如表单验证、数据加载和动画效果。​在此基础上，进阶技术包括 后端开发语言（如 Python、Java） 与数据库（如 MySQL、MongoDB），用于处理数据存储与业务逻辑；前端框架（如 React、Vue.js） 则通过组件化开发提升效率；HTTP 协议 实现客户端与服务器的数据传输。随着技术发展，Web 技术还延伸至移动端适配、性能优化和安全防护等领域，持续推动互联网应用的创新与发展。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/15/%E6%97%A5%E5%BF%97/" title="日志">日志</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-15T14:13:11.000Z" title="发表于 2025-06-15 22:13:11">2025-06-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%8B%E7%BB%8D/">介绍</a></span></div><div class="content">学习 WEB 前端的心得体会​在数字化浪潮席卷全球的当下，Web 前端开发作为连接用户与互联网世界的桥梁，其重要性愈发凸显。怀着对互联网技术的浓厚兴趣，我踏上了 Web 前端的学习之旅。这段经历不仅让我掌握了一系列专业技能，更让我对软件开发的逻辑与创意结合有了深刻理解。​初入 Web 前端领域，HTML、CSS 和 JavaScript 这三大核心技术如同三座高山横亘在前。学习 HTML 时，我从最基础的标签学起，逐步搭建起网页的骨架。一个简单的段落、一张图片、一个链接，看似简单的元素组合，却构成了网页的基本结构。这个过程就像搭建积木，每一个标签都是一块积木，通过合理的排列组合，才能构建出稳定的框架。​CSS 的学习则为网页赋予了灵魂与美感。从简单的颜色、字体设置，到复杂的布局设计，每一次样式的调整都能让网页呈现出不同的风格。我曾花费大量时间研究 Flex 布局和 Grid 布局，试图让网页在不同设备上都能完美展示。这个过程让我明白，前端开发不仅要注重功能实现，更要关注用户体验。一个美观、易用的界面，能够极大提升用户对网页的好感度。​JavaScript...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/15/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="学习心得">学习心得</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-15T12:08:31.000Z" title="发表于 2025-06-15 20:08:31">2025-06-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%8B%E7%BB%8D/">介绍</a></span></div><div class="content">学习 WEB 前端的心得体会在数字化浪潮席卷全球的当下，Web 前端开发作为连接用户与互联网世界的桥梁，其重要性愈发凸显。怀着对互联网技术的浓厚兴趣，我踏上了 Web 前端的学习之旅。这段经历不仅让我掌握了一系列专业技能，更让我对软件开发的逻辑与创意结合有了深刻理解。初入 Web 前端领域，HTML、CSS 和 JavaScript 这三大核心技术如同三座高山横亘在前。学习 HTML 时，我从最基础的标签学起，逐步搭建起网页的骨架。一个简单的段落、一张图片、一个链接，看似简单的元素组合，却构成了网页的基本结构。这个过程就像搭建积木，每一个标签都是一块积木，通过合理的排列组合，才能构建出稳定的框架。CSS 的学习则为网页赋予了灵魂与美感。从简单的颜色、字体设置，到复杂的布局设计，每一次样式的调整都能让网页呈现出不同的风格。我曾花费大量时间研究 Flex 布局和 Grid 布局，试图让网页在不同设备上都能完美展示。这个过程让我明白，前端开发不仅要注重功能实现，更要关注用户体验。一个美观、易用的界面，能够极大提升用户对网页的好感度。JavaScript...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/08/hello-world/" title="我的第一篇博客文章">我的第一篇博客文章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-07T16:00:00.000Z" title="发表于 2025-06-08 00:00:00">2025-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%8B%E7%BB%8D/">介绍</a></span></div><div class="content">欢迎来到我的博客！这是我的第一篇文章。 个人介绍大家好，我叫武家鑫，是石家庄学院物联网工程专业 2023 级的一名学生。初次见面，希望通过这份介绍，能让大家更好地认识我。在学业方面，自从踏入石家庄学院物联网工程专业，我便被这个融合了计算机技术、通信技术与电子技术的学科深深吸引。课堂上，我专注于理论知识的学习，努力钻研传感器原理、物联网通信协议等专业课程；课后，我积极参与实践项目，将所学知识运用到实际中，尝试搭建小型物联网系统，探索智能设备之间的数据交互与协同工作。我深知，扎实的专业基础是未来在物联网领域有所建树的关键，因此始终保持着对知识的渴望与探索精神。​在技能培养上，我熟练掌握 C、Python 等编程语言，能够运用它们进行程序开发与算法设计。同时，我对物联网相关的硬件设备也有一定了解，熟悉...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/w.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">武家鑫</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wjx-max"><i class="fab fa-github"></i><span>关注</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/15/Java%E7%AE%80%E4%BB%8B/" title="Java简介">Java简介</a><time datetime="2025-06-15T14:52:20.000Z" title="发表于 2025-06-15 22:52:20">2025-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/15/Web%E6%8A%80%E6%9C%AF/" title="Web技术">Web技术</a><time datetime="2025-06-15T14:49:19.000Z" title="发表于 2025-06-15 22:49:19">2025-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/15/%E6%97%A5%E5%BF%97/" title="日志">日志</a><time datetime="2025-06-15T14:13:11.000Z" title="发表于 2025-06-15 22:13:11">2025-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/15/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="学习心得">学习心得</a><time datetime="2025-06-15T12:08:31.000Z" title="发表于 2025-06-15 20:08:31">2025-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/08/hello-world/" title="我的第一篇博客文章">我的第一篇博客文章</a><time datetime="2025-06-07T16:00:00.000Z" title="发表于 2025-06-08 00:00:00">2025-06-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%8B%E7%BB%8D/"><span class="card-category-list-name">介绍</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.3em; color: #99a1ac">生活</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">学习</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">5</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-15T15:19:40.031Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><!--#footer-wrap--><!--  if theme.footer.owner.enable--><!--    - const currentYear = new Date().getFullYear()--><!--    - const sinceYear = theme.footer.owner.since--><!--    .copyright--><!--      if sinceYear && sinceYear != currentYear--><!--        != `&copy;${sinceYear} - ${currentYear} By ${config.author}`--><!--      else--><!--        != `&copy;${currentYear} By ${config.author}`--><!--  if theme.footer.copyright--><!--    - const v = getVersion()--><!--    .framework-info--><!--      span= _p('footer.framework') + ' '--><!--      a(href='https://hexo.io')= `Hexo ${v.hexo}`--><!--      span.footer-separator |--><!--      span= _p('footer.theme') + ' '--><!--      a(href='https://github.com/jerryc127/hexo-theme-butterfly')= `Butterfly ${v.theme}`--><!--  if theme.footer.custom_text--><!--    .footer_custom_text!= theme.footer.custom_text--></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
